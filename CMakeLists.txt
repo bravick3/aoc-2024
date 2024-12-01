@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.29)
+project(aot_2024)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(aot_2024 main.cpp
+        dec1/dec1.cpp)
