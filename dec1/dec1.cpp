@@ -38,14 +38,22 @@ list<int> hamming(const list<int>& left, const list<int>& right) {
     return result;
 }
 
-int test() {
-    list<int> left = {1, 2, 3, 4, 5};
-    list<int> right = {5, 4, 3, 2, 1};
-    list<int> result = hamming(left, right);
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        cout << *it << endl;
+int similarity(const list<int>& left, const list<int>& right) {
+    int simCount = 0;
+    auto itLeft = left.begin();
+    while (itLeft != left.end()) {
+        int count = 0;
+        auto itRight = right.begin();
+        while(itRight != right.end()) {
+            if (*itLeft == *itRight) {
+                count++;
+            }
+            ++itRight;
+        }
+        simCount += *itLeft * count;
+        ++itLeft;
     }
-    return 0;
+    return simCount;
 }
 
 int first() {
@@ -76,6 +84,22 @@ int first() {
         result.pop_front();
     }
     cout << "Sum: " << sum << endl;
+    cout << "Sim Left -> Right: " << similarity(left, right) << endl;
+    cout << "Sim Right -> Left: " << similarity(right, left) << endl;
+
+
+    return 0;
+}
+
+int test() {
+    list<int> left = {1, 2, 3, 4, 5};
+    list<int> right = {5, 4, 3, 2, 1};
+    int result = similarity(left, right);
+    cout << "Result: " << result << endl;
+    /*list<int> result = hamming(left, right);
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        cout << *it << endl;
+    }*/
     return 0;
 }
 
