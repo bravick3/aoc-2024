@@ -40,35 +40,6 @@ bool isCorrect(auto& iterator, list<int>& data, bool asc, int previous, string& 
     }
     return correct;
 }
-bool isCorrectMargin(auto& iterator, list<int>& data, bool asc, int previous, string& line) {
-    bool correct = true;
-    auto it = data.begin();
-    while (it != data.end()) {
-        list<int> copy = data;
-        copy.erase(it);
-        while (iterator != copy.end()) {
-            if (asc && previous > *iterator) {
-                cout << "WRONG | asc: " << asc << " | line: " << line << endl;
-                correct = false;
-                break;
-            }
-            if (!asc && previous < *iterator) {
-                cout << "WRONG | asc: " << asc << " | line: " << line << endl;
-                correct = false;
-                break;
-            }
-            int abs = absolute(previous, *iterator);
-            if (abs < 1 || abs > 3) {
-                cout << "WRONG | asc: " << asc << " | line: " << line << endl;
-                correct = false;
-                break;
-            }
-            previous = *iterator;
-            ++iterator;
-        }
-    }
-    return correct;
-}
 
 
 int second() {
