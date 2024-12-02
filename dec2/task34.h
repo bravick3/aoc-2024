@@ -7,6 +7,7 @@
 
 
 int second();
+int third();
 
 
 

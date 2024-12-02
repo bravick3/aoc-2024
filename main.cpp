@@ -5,7 +5,8 @@
 
 int main() {
     // first();
-    second();
+    // second();
+    third();
     // test();
     return 0;
 }
