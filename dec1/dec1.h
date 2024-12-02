@@ -8,6 +8,7 @@
 
 int first();
 int test();
+int absolute(int number1, int number2);
 
 
 #endif //DEC1_H
