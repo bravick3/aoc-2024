@@ -5,6 +5,8 @@
 #include <regex>
 using namespace std;
 
+bool permission = true;
+
 ifstream loadFile(string filename) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -21,8 +23,37 @@ int expressionFinder(string& line) {
     for(sregex_iterator i = sregex_iterator(line.begin(), line.end(), pattern);
             i != std::sregex_iterator(); ++i ) {
         smatch match = *i;
-        //cout << m.str() << " | " << m[1] << " | " << m[2] << '\n';
+        //cout << match.str() << " | " << match[1] << " | " << match[2] << '\n';
         sum += stoi(match[1]) * stoi(match[2]);
+    }
+    return sum;
+}
+
+int improvedExpressionFinder(string& line) {
+    regex pattern(R"((do\(\)|don't\(\)|mul\((\d{1,3}),(\d{1,3})\)))");
+    int sum = 0;
+    //sum += stoi(match[1]) * stoi(match[2]);
+    for(sregex_iterator i = sregex_iterator(line.begin(), line.end(), pattern);
+        i != std::sregex_iterator(); ++i ) {
+        smatch match = *i;
+        string match_str = match.str();
+        // cout << match_str << endl;
+        if (match_str == "don't()") {
+            permission = false;
+            cout << "Permission False: " << match_str << endl;
+            continue;
+        }
+        if (match_str == "do()") {
+            permission = true;
+            cout << "Permission True: " << match_str << endl;
+            continue;
+        }
+        if (permission) {
+            //cout << match.str() << " | " << match[2] << " | " << match[3] << '\n';
+            sum += stoi(match[2]) * stoi(match[3]);
+        }
+
+        //sum += stoi(match[1]) * stoi(match[2]);
     }
     return sum;
 }
@@ -42,7 +73,7 @@ void loop(ifstream& file) {
     while (getline(file, line)) {
         cout << "Line no. " << index << endl;
         index++;
-        total_sum += expressionFinder(line);
+        total_sum += improvedExpressionFinder(line);
     }
     cout << total_sum << endl;
 }
