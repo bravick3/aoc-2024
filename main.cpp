@@ -11,5 +11,9 @@ int main() {
     //third();
     //day3();
     day4();
+    /*std::string s("abc");
+    std::cout << s.at(0) << std::endl;
+    */
+
     return 0;
 }
