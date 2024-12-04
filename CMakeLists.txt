@@ -7,4 +7,6 @@ add_executable(aot_2024 main.cpp
         dec1/dec1.cpp
         dec2/task34.cpp
         dec3/dec3.cpp
-        dec3/dec3.h)
+        dec3/dec3.h
+        dec4/dec4.cpp
+        dec4/dec4.h)

@@ -10,7 +10,7 @@ bool permission = true;
 ifstream loadFile(string filename) {
     ifstream file(filename);
     if (!file.is_open()) {
-        cerr << "Error: Could not open the file '" << filename << "'" << endl;
+        cout << "Error: Could not open the file '" << filename << "'" << endl;
         exit(1);
     }
     return file;
