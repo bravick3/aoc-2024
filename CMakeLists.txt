@@ -9,4 +9,8 @@ add_executable(aot_2024 main.cpp
         dec3/dec3.cpp
         dec3/dec3.h
         dec4/dec4.cpp
-        dec4/dec4.h)
+        dec4/dec4.h
+        dec5/dec5.cpp
+        dec5/dec5.h
+        dec6/day6.cpp
+        dec6/day6.h)
