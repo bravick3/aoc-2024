@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <vector>
 
 #include "dec1/dec1.h"
 #include "dec2/task34.h"
@@ -18,6 +19,12 @@ int main() {
     std::cout << s.at(0) << std::endl;
     */
 
+    /*std::vector<std::string> test = {"A", "B", "C"};
+    test.push_back("D");
+    for (auto l : test) {
+        std::cout << l << " ";
+    }
+    */
 
     return 0;
 }
