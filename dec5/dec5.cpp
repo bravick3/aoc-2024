@@ -101,7 +101,6 @@ void sumCorrectInstructions() {
 bool findInstruction(int &key, int &value) {
     for (auto ruleValue : rules[key]) {
         if (ruleValue == value) {
-            // cout << "Rule Found: " << key << " | " << ruleValue << endl;
             return true;
         }
     }
@@ -112,7 +111,6 @@ bool findInstruction(int &key, int &value) {
 bool sortInstruction(vector<int> &list) {
     for (int i = 0; i < list.size(); i++) {
         for (int j = i + 1; j < list.size(); j++) {
-            // cout << list.at(i) << " | " << list.at(j) << endl;
             bool iBeforeJ = findInstruction(list.at(i), list.at(j));
             bool jBeforeI = findInstruction(list.at(j), list.at(i));
             if (iBeforeJ && jBeforeI) {
@@ -144,8 +142,6 @@ void sumFalseInstructions() {
         vector<int> instList = splitStringVector(instruction, ',');
         bool isSorted = sortInstruction(instList);
         if (isSorted) {
-            // get middle value and add it up
-            //fixedFalseInstructions.push_front(instList);
             counter5 += instList.at(instList.size()/2);
         }
 
